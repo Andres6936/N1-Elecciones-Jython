@@ -49,13 +49,13 @@ class InterfazElecciones(JFrame):
         # Agregamos el panel temporal al JFrame
         self.add(panelCandidatos, BorderLayout.CENTER)
         
-        self.panelCandidato1 = PanelCandidato()
+        self.panelCandidato1 = PanelCandidato(self.urna.candidato1)
         panelCandidatos.add(self.panelCandidato1)
         
-        self.panelCandidato2 = PanelCandidato()
+        self.panelCandidato2 = PanelCandidato(self.urna.candidato2)
         panelCandidatos.add(self.panelCandidato2)
         
-        self.panelCandidato3 = PanelCandidato()
+        self.panelCandidato3 = PanelCandidato(self.urna.candidato3)
         panelCandidatos.add(self.panelCandidato3)
         
         panelInferior = JPanel()
@@ -70,9 +70,14 @@ class InterfazElecciones(JFrame):
         
         self.setLocationRelativeTo(None)
         
+        self.actualizar()
         
     def actualizar(self):
-        pass
+        
+        self.panelCandidato1.actualizar()
+        self.panelCandidato2.actualizar()
+        self.panelCandidato3.actualizar()
+        self.panelUrna.actualizar()
         
     def adicionarVotoCandidato(self):
         pass

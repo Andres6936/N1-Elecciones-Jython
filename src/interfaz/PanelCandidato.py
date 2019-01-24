@@ -30,7 +30,9 @@ class PanelCandidato( JPanel ):
     Comando votar por el candidato
     """
     
-    def __init__(self):
+    def __init__(self, nCandidato):
+        
+        self.candidato = nCandidato
         
         self.botonDarPorcentajeVotos = JButton( self.PORCENTAJE_VOTOS )
         self.botonDarPorcentajeVotos.setPreferredSize(Dimension( 160, 20 ))
@@ -58,14 +60,14 @@ class PanelCandidato( JPanel ):
         self.etiquetaCostoCampanhaCandidato.setHorizontalAlignment(JLabel.LEFT)
         
         self.etiquetaNumeroVotos = JLabel("Numero de Votos: ")
-        self.etiquetaNumeroVotos.setHorizontalAlignment(JLabel.LEFT)
+        self.etiquetaNumeroVotos.setHorizontalAlignment(JLabel.CENTER)
         self.etiquetaNumeroVotos.setForeground(Color.RED.darker( ))
         
         panelImagen = JPanel()
         panelInformacion = JPanel()
         
         self.setLayout(BorderLayout( ))
-        self.setBorder(BorderFactory.createTitledBorder("Candidato (1)"))
+        self.setBorder(BorderFactory.createTitledBorder("Candidato"))
         
         self.add(panelImagen, BorderLayout.CENTER)
         panelImagen.setLayout(BorderLayout( ))
@@ -91,7 +93,13 @@ class PanelCandidato( JPanel ):
         self.add(panelInformacion, BorderLayout.SOUTH)
         
     def actualizar(self):
-        pass
+        
+        self.etiquetaNombreCandidato.setText("Nombre: " + self.candidato.getNombre())
+        self.etiquetaApellidoCandidato.setText("Apellido: " + self.candidato.getApellido())
+        self.etiquetaEdadCandidato.setText("Edad: " + str(self.candidato.getEdad()))
+        self.etiquetaPartidoPoliticoCandidato.setText("Partido Politico: " + self.candidato.getPartidoPolitico())
+        self.etiquetaCostoCampanhaCandidato.setText("Costo Campanha: $" + str(self.candidato.getCostoCampanha()))
+        self.etiquetaNumeroVotos.setText("Numero de Votos: " + str(self.candidato.getVotos()))
     
     def actionPerformed(self):
         pass
