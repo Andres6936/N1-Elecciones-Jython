@@ -89,11 +89,11 @@ class InterfazElecciones(JFrame):
         
         if (influencia != None):
             if (influencia == "Television"):
-                pass
+                self.urna.ingresarVotoTelevisionCandidato(nCandidato)
             if (influencia == "Radio"):
-                pass
+                self.urna.ingresarVotoRadioCandidato(nCandidato)
             if (influencia == "Internet"):
-                pass
+                self.urna.ingresarVotoInternetCandidato(nCandidato)
         
         self.actualizar()
     
@@ -103,7 +103,7 @@ class InterfazElecciones(JFrame):
         self.actualizar()
     
     def mostrarDialogoPorcentajeVotos(self, nCandidato):
-        pass
+        JOptionPane.showMessageDialog(self, "Porcentaje de votos: " + str(self.urna.calcularPorcentajeVotosCandidato(nCandidato)) + "%", nCandidato.getNombre(), JOptionPane.INFORMATION_MESSAGE)
     
     def darTotalVotosUrna(self):
         pass
