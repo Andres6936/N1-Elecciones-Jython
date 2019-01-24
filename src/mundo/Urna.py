@@ -76,59 +76,41 @@ class Urna:
         """
         return self.candidato3
 
-    def ingresarVotoTelevisionCandidato1(self):
+    def ingresarVotoTelevisionCandidato(self, nCandidato):
         """
-        Ingresa un voto influenciado por la televisión al candidato 1.
+        Ingresa un voto influenciado por la television al candidato.
+        
+        Args:
+            nCandidato (Candidato): Candidato a ingresar voto.
+            
+        Poscondition:
+            Aumenta en 1 los votos al candidato.
         """
-        self.candidato1.agregarVotoTelevision()
-
-    def ingresarVotoRadioCandidato1(self):
+        nCandidato.agregarVotoTelevision()
+        
+    def ingresarVotoRadioCandidato(self, nCandidato):
         """
-        Ingresa un voto influenciado por radio al candidato 1.
+        Ingresa un voto influeciado por la radio al candidato.
+        
+        Args:
+            nCandidato (Candidato): Candidato a ingresar voto.
+            
+        Poscondition:
+            Aumenta en 1 los votos al candidato.
         """
-        self.candidato1.agregarVotoRadio()
-
-    def ingresarVotoInternetCandidato1(self):
+        nCandidato.agregarVotoRadio()
+        
+    def ingresarVotoInternetCandidato(self, nCandidato):
         """
-        Ingresa un voto influenciado por internet al candidato 1.
+        Ingresar un voto influenciado por la internet al candidato.
+        
+        Args:
+            nCandidato (Candidato): Candidato a ingresar voto.
+            
+        Poscondition:
+            Aumenta en 1 los votos al candidato.
         """
-        self.candidato1.agregarVotoInternet()
-
-    def ingresarVotoTelevisionCandidato2(self):
-        """
-        Ingresa un voto influenciado por la televisión al candidato 2.
-        """
-        self.candidato2.agregarVotoTelevision()
-
-    def ingresarVotoRadioCandidato2(self):
-        """
-        Ingresa un voto influenciado por radio al candidato 2.
-        """
-        self.candidato2.agregarVotoRadio()
-
-    def ingresarVotoInternetCandidato2(self):
-        """
-        Ingresa un voto influenciado por internet al candidato 2.
-        """
-        self.candidato2.agregarVotoInternet()
-
-    def ingresarVotoTelevisionCandidato3(self):
-        """
-        Ingresa un voto influenciado por la televisión al candidato 3.
-        """
-        self.candidato3.agregarVotoTelevision()
-
-    def ingresarVotoRadioCandidato3(self):
-        """
-        Ingresa un voto influenciado por radio al candidato 3.
-        """
-        self.candidato3.agregarVotoRadio()
-
-    def ingresarVotoInternetCandidato3(self):
-        """
-        Ingresa un voto influenciado por internet al candidato 3.
-        """
-        self.candidato3.agregarVotoInternet()
+        nCandidato.agregarVotoInternet()
 
     def calcularTotalVotos(self):
         """
@@ -150,47 +132,22 @@ class Urna:
         promedio = total / 3
 
         return promedio
-
-    def calcularPorcentajeVotosCandidato1(self):
+    
+    def calcularPorcentajeVotosCandidato(self, nCandidato):
         """
-        Devuelve el porcentaje de votos obtenidos por el candidato 1.
+        Devuelve el porcentaje de votos obtenido por el candidato.
+        
+        Args:
+            nCandidato (Candidato): Candidato a promediar.
+            
         Returns:
-            float: Porcentaje de votos obtenidos por el candidato 1.
+            float: Porcentaje de votos obtneidos por el candidato.
         """
-
-        numVotosCandidato1 = self.candidato1.getVotos()
+        numeroVotosCandidato = nCandidato.getVotos()
         votosTotales = self.calcularTotalVotos()
-
-        porcentaje = numVotosCandidato1 / votosTotales * 100
-
-        return porcentaje
-
-    def calcularPorcentajeVotosCandidato2(self):
-        """
-        Devuelve el porcentaje de votos obtenidos por el candidato 2.
-        Returns:
-            float: Porcentaje de votos obtenidos por el candidato 2.
-        """
-
-        numVotosCandidato2 = self.candidato2.getVotos()
-        votosTotales = self.calcularTotalVotos()
-
-        porcentaje = numVotosCandidato2 / votosTotales * 100
-
-        return porcentaje
-
-    def calcularPorcentajeVotosCandidato3(self):
-        """
-        Devuelve el porcentaje de votos obtenidos por el candidato 3.
-        Returns:
-            float: Porcentaje de votos obtenidos por el candidato 3.
-        """
-
-        numVotosCandidato3 = self.candidato3.getVotos()
-        votosTotales = self.calcularTotalVotos()
-
-        porcentaje = numVotosCandidato3 / votosTotales * 100
-
+        
+        porcentaje = numeroVotosCandidato / votosTotales * 100
+        
         return porcentaje
 
     def vaciarUrna(self):
