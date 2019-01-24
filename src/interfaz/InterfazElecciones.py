@@ -11,7 +11,7 @@ from interfaz.PanelCandidato import PanelCandidato
 from java.awt import BorderLayout
 from java.awt import GridLayout
 
-from javax.swing import JFrame
+from javax.swing import JFrame, JOptionPane
 from javax.swing import JPanel
 
 from interfaz.PanelUrna import PanelUrna
@@ -49,13 +49,13 @@ class InterfazElecciones(JFrame):
         # Agregamos el panel temporal al JFrame
         self.add(panelCandidatos, BorderLayout.CENTER)
         
-        self.panelCandidato1 = PanelCandidato(self.urna.candidato1)
+        self.panelCandidato1 = PanelCandidato(self, self.urna.candidato1)
         panelCandidatos.add(self.panelCandidato1)
         
-        self.panelCandidato2 = PanelCandidato(self.urna.candidato2)
+        self.panelCandidato2 = PanelCandidato(self, self.urna.candidato2)
         panelCandidatos.add(self.panelCandidato2)
         
-        self.panelCandidato3 = PanelCandidato(self.urna.candidato3)
+        self.panelCandidato3 = PanelCandidato(self, self.urna.candidato3)
         panelCandidatos.add(self.panelCandidato3)
         
         panelInferior = JPanel()
@@ -79,13 +79,30 @@ class InterfazElecciones(JFrame):
         self.panelCandidato3.actualizar()
         self.panelUrna.actualizar()
         
-    def adicionarVotoCandidato(self):
-        pass
+    def adicionarVotoCandidato(self, nCandidato):
+        
+        posibilidades = ["Television", "Radio", "Internet"]
+        influencia = str(JOptionPane.showInputDialog(self,
+                            "Que medio influencio mas en usted para votar por este candidato?",
+                            "Influencia", JOptionPane.QUESTION_MESSAGE, None, posibilidades,
+                            "Television"))
+        
+        if (influencia != None):
+            if (influencia == "Television"):
+                pass
+            if (influencia == "Radio"):
+                pass
+            if (influencia == "Internet"):
+                pass
+        
+        self.actualizar()
     
     def vaciarUrna(self):
-        pass
+        
+        self.urna.vaciarUrna()
+        self.actualizar()
     
-    def mostrarDialogoPorcentajeVotos(self):
+    def mostrarDialogoPorcentajeVotos(self, nCandidato):
         pass
     
     def darTotalVotosUrna(self):

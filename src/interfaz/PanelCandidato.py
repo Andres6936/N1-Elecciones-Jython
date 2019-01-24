@@ -15,7 +15,9 @@ from java.awt import GridLayout
 from java.awt import Dimension
 from java.awt import Color
 
-class PanelCandidato( JPanel ):
+from java.awt.event import ActionListener
+
+class PanelCandidato( JPanel, ActionListener ):
     """
     Panel que contiene la información de un candidato
     """
@@ -30,19 +32,20 @@ class PanelCandidato( JPanel ):
     Comando votar por el candidato
     """
     
-    def __init__(self, nCandidato):
+    def __init__(self, parent, nCandidato):
         
+        self.interfaz = parent
         self.candidato = nCandidato
         
         self.botonDarPorcentajeVotos = JButton( self.PORCENTAJE_VOTOS )
         self.botonDarPorcentajeVotos.setPreferredSize(Dimension( 160, 20 ))
         self.botonDarPorcentajeVotos.setActionCommand(self.PORCENTAJE_VOTOS);
-        #self.botonDarPorcentajeVotos.addActionListener(self)
+        self.botonDarPorcentajeVotos.addActionListener(self)
         
         self.botonVotar = JButton( self.VOTAR )
         self.botonVotar.setPreferredSize(Dimension( 160, 20 ))
         self.botonVotar.setActionCommand(self.VOTAR)
-        #self.botonVotar.addActionListener(self)
+        self.botonVotar.addActionListener(self)
         
         self.etiquetaNombreCandidato = JLabel("Nombre: ")
         self.etiquetaNombreCandidato.setHorizontalAlignment(JLabel.LEFT)
@@ -101,8 +104,12 @@ class PanelCandidato( JPanel ):
         self.etiquetaCostoCampanhaCandidato.setText("Costo Campanha: $" + str(self.candidato.getCostoCampanha()))
         self.etiquetaNumeroVotos.setText("Numero de Votos: " + str(self.candidato.getVotos()))
     
-    def actionPerformed(self):
-        pass
+    def actionPerformed(self, e):
+        
+        if (self.VOTAR == e.getActionCommand()):
+            self.interfaz.adicionarVotoCandidato( self.candidato )
+        elif (self.PORCENTAJE_VOTOS == e.getActionCommand()):
+            self.interfaz.mostrarDialogoPorcentajeVotos( self.candidato )
     
     def formatearValorReal(self):
         pass
