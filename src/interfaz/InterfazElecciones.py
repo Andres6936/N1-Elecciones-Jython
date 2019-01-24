@@ -13,7 +13,9 @@ from java.awt import GridLayout
 
 from javax.swing import JFrame
 from javax.swing import JPanel
+
 from interfaz.PanelUrna import PanelUrna
+from interfaz.PanelImagen import PanelImagen
 from interfaz.PanelExtension import PanelExtension
 
 class InterfazElecciones(JFrame):
@@ -36,6 +38,8 @@ class InterfazElecciones(JFrame):
         # Creación de los paneles aquí
         
         # Panel imagen
+        self.panelImagen = PanelImagen();
+        self.add(self.panelImagen, BorderLayout.NORTH)
         
         # Construye los paneles de los tres candidatos
         
@@ -67,6 +71,29 @@ class InterfazElecciones(JFrame):
         self.setLocationRelativeTo(None)
         
         
+    def actualizar(self):
+        pass
+        
+    def adicionarVotoCandidato(self):
+        pass
+    
+    def vaciarUrna(self):
+        pass
+    
+    def mostrarDialogoPorcentajeVotos(self):
+        pass
+    
+    def darTotalVotosUrna(self):
+        pass
+    
+    def formatearValorReal(self):
+        pass
+    
+    def reqFuncOpcion1(self):
+        pass
+    
+    def reqFuncOpcion2(self):
+        pass
         
         
         
