@@ -146,7 +146,8 @@ class Urna:
         numeroVotosCandidato = nCandidato.getVotos()
         votosTotales = self.calcularTotalVotos()
         
-        porcentaje = numeroVotosCandidato / votosTotales * 100
+        if (votosTotales != 0):
+            porcentaje = numeroVotosCandidato / votosTotales * 100
         
         return porcentaje
 
