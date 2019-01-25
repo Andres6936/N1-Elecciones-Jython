@@ -32,8 +32,9 @@ class PanelUrna(JPanel):
         
         self.setPreferredSize(Dimension(78, 78))
         
-    def actualizar(self):
-        pass
+    def actualizar(self, nUrna):
+        self.etiquetaTotalVotos.setText("Total Votos: " + str(nUrna.calcularTotalVotos()))
+        self.etiquetaPromedioCostoCampanha.setText("Costo Promedio Campanha: $" + str(nUrna.calcularCostoPromedioCampanha()))
     
     def formatearValorReal(self):
         pass

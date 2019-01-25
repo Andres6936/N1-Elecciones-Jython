@@ -103,6 +103,11 @@ class PanelCandidato( JPanel, ActionListener ):
         self.etiquetaPartidoPoliticoCandidato.setText("Partido Politico: " + self.candidato.getPartidoPolitico())
         self.etiquetaCostoCampanhaCandidato.setText("Costo Campanha: $" + str(self.candidato.getCostoCampanha()))
         self.etiquetaNumeroVotos.setText("Numero de Votos: " + str(self.candidato.getVotos()))
+        
+        if (self.interfaz.darTotalVotosUrna() == 0):
+            self.botonDarPorcentajeVotos.setEnabled(False)
+        else:
+            self.botonDarPorcentajeVotos.setEnabled(True)
     
     def actionPerformed(self, e):
         

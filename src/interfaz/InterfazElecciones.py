@@ -77,7 +77,7 @@ class InterfazElecciones(JFrame):
         self.panelCandidato1.actualizar()
         self.panelCandidato2.actualizar()
         self.panelCandidato3.actualizar()
-        self.panelUrna.actualizar()
+        self.panelUrna.actualizar(self.urna)
         
     def adicionarVotoCandidato(self, nCandidato):
         
@@ -106,16 +106,18 @@ class InterfazElecciones(JFrame):
         JOptionPane.showMessageDialog(self, "Porcentaje de votos: " + str(self.urna.calcularPorcentajeVotosCandidato(nCandidato)) + "%", nCandidato.getNombre(), JOptionPane.INFORMATION_MESSAGE)
     
     def darTotalVotosUrna(self):
-        pass
+        return self.urna.calcularTotalVotos()
     
     def formatearValorReal(self):
         pass
     
     def reqFuncOpcion1(self):
-        pass
+        resultado = self.urna.metodo1()
+        JOptionPane.showMessageDialog(self, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE)
     
     def reqFuncOpcion2(self):
-        pass
+        resultado = self.urna.metodo2()
+        JOptionPane.showMessageDialog(self, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE)
         
         
         
