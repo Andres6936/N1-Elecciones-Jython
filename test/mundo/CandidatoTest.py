@@ -34,6 +34,9 @@ class CandidatoTest(unittest.TestCase):
         self.assertTrue(self.candidato.getVotos() == 0, "No se crea con el numero de votos en 0")
     
     def testAgregarVotoTelevision(self):
+        """
+        Prueba 2: Agregar un voto al candidato influenciado por la television correctamente
+        """
         self.setupEscenario1()
         
         self.candidato.agregarVotoTelevision()
@@ -41,6 +44,9 @@ class CandidatoTest(unittest.TestCase):
         self.assertTrue(self.candidato.getCostoCampanha() == 1000, "No aumenta el costo de campanha en 1000")
         
     def testAgregaVotoRadio(self):
+        """
+        Prueba 3: Agregar un voto al candidato influenciado por la radio correctamente
+        """
         self.setupEscenario1()
         
         self.candidato.agregarVotoRadio()
@@ -48,6 +54,9 @@ class CandidatoTest(unittest.TestCase):
         self.assertTrue(self.candidato.getCostoCampanha() == 500, "No aumenta el costo de campanha en 500")
         
     def testAgregarVotoInternet(self):
+        """
+        Prueba 4: Agregar un voto al candidato influenciado por la internet correctamente
+        """
         self.setupEscenario1()
         
         self.candidato.agregarVotoInternet()
@@ -55,6 +64,9 @@ class CandidatoTest(unittest.TestCase):
         self.assertTrue(self.candidato.getCostoCampanha() == 100, "No aumenta el costo de campanha en 100")
         
     def testReiniciarConteoVotos(self):
+        """
+        Prueba 5: Reiniciar los votos del candidato correctamente
+        """
         self.setupEscenario1()
         
         self.candidato.agregarVotoTelevision()
@@ -65,6 +77,9 @@ class CandidatoTest(unittest.TestCase):
         self.assertTrue(self.candidato.getVotos() == 0, "No inicializa el numero de votos a 0")
         
     def testReiniciarCostoCampanha(self):
+        """
+        Prueba 6: Reiniciar el costo de campanha del candidato correctamente
+        """
         self.setupEscenario1()
         
         self.candidato.agregarVotoTelevision()
