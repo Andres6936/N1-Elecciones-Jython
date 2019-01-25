@@ -148,6 +148,8 @@ class Urna:
         
         if (votosTotales != 0):
             porcentaje = numeroVotosCandidato / votosTotales * 100
+        else:
+            return 0
         
         return porcentaje
 
