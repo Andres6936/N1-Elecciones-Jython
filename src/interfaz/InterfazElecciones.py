@@ -65,7 +65,7 @@ class InterfazElecciones(JFrame):
         self.panelUrna = PanelUrna()
         panelInferior.add(self.panelUrna, BorderLayout.CENTER)
         
-        self.panelExtension = PanelExtension()
+        self.panelExtension = PanelExtension(self)
         panelInferior.add(self.panelExtension, BorderLayout.SOUTH)
         
         self.setLocationRelativeTo(None)
